@@ -1,1 +1,2 @@
-# nft-marketplace-solidity-react
+# NFT marketplace
+Build a NFT marketplace from scratch
