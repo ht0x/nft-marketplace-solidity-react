@@ -1,2 +1,2 @@
 # NFT marketplace
-Build a NFT marketplace from scratch
+Build a NFT marketplace from scratch.
