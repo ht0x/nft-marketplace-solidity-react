@@ -1,12 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract CryptoNft {
-    string public name;
-    string public symbol;
+import './ERC721Connector.sol';
 
-    constructor(){
-        name = 'CryptoNft';
-        symbol = 'CNFT';
+contract CryptoNft is ERC721Connector {
+   
+    constructor() ERC721Connector("CryptoNft", "CNFT") {
+    
     }
 }
