@@ -4,7 +4,9 @@ pragma solidity ^0.8.0;
 contract ERC721 {
     /* 
     TODO: 
-    1 - Implement mint function
+    1 - Implement mint function 
+    2 - Implement balanceOf function
+    3 - Implement ownerOf function
     */
 
     //Keep track of the token ids to token owner addresses
@@ -23,7 +25,18 @@ contract ERC721 {
         return (_tokenOwner[tokenId] != address(0));
     }
 
-    function _mint(address to, uint tokenId) internal {
+    function balanceOf(address _owner) external view returns (uint){
+        require(_owner != address(0), "Error! NFTs assigned to zero address are considered invalid.");
+        return _ownedTokensCount[_owner];
+    }
+
+    function ownerOf(uint _tokenId) external view returns(address) {
+        address owner = _tokenOwner[_tokenId];
+        require(owner != address(0), "Error! Token id query for non-existent owner.");
+        return owner;
+    }
+
+    function _mint(address to, uint tokenId) internal virtual {
         //Require that the address is not 0
         require(to != address(0), "Error! Invalid input address!"); 
 
