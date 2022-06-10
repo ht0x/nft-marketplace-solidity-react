@@ -26,9 +26,11 @@ contract ERC721Enumerable is ERC721 {
         return _allTokens[_index];
     }
 
-    // function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256){
-
-    // }
+    function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256){
+        require(_owner != address(0), "Error! Invalid owner address!");
+        require(_index >= 0 && _index < _ownerTokens[_owner].length, "Error! Invalid token index!");
+        return _ownerTokens[_owner][_index];
+    }
 
     function _mint(address to, uint tokenId) internal override(ERC721) {
         super._mint(to, tokenId);
